@@ -1,0 +1,180 @@
+|Front
+Count[0] <= inst[0].DB_MAX_OUTPUT_PORT_TYPE
+Count[1] <= inst[1].DB_MAX_OUTPUT_PORT_TYPE
+Count[2] <= inst[2].DB_MAX_OUTPUT_PORT_TYPE
+Count[3] <= inst[3].DB_MAX_OUTPUT_PORT_TYPE
+Count[4] <= inst[4].DB_MAX_OUTPUT_PORT_TYPE
+Count[5] <= inst[5].DB_MAX_OUTPUT_PORT_TYPE
+CLK => inst[5].CLK
+CLK => inst[4].CLK
+CLK => inst[3].CLK
+CLK => inst[2].CLK
+CLK => inst[1].CLK
+CLK => inst[0].CLK
+Reset => Mux2_6b:inst2.S
+Enable => Adder_6b:inst1.C_in
+
+
+|Front|Mux2_6b:inst2
+Y[0] <= 21mux:inst4.Y
+Y[1] <= 21mux:inst3.Y
+Y[2] <= 21mux:inst2.Y
+Y[3] <= 21mux:inst1.Y
+Y[4] <= 21mux:inst.Y
+Y[5] <= 21mux:inst5.Y
+S => 21mux:inst.S
+S => 21mux:inst1.S
+S => 21mux:inst2.S
+S => 21mux:inst3.S
+S => 21mux:inst4.S
+S => 21mux:inst5.S
+B[0] => 21mux:inst4.B
+B[1] => 21mux:inst3.B
+B[2] => 21mux:inst2.B
+B[3] => 21mux:inst1.B
+B[4] => 21mux:inst.B
+B[5] => 21mux:inst5.B
+A[0] => 21mux:inst4.A
+A[1] => 21mux:inst3.A
+A[2] => 21mux:inst2.A
+A[3] => 21mux:inst1.A
+A[4] => 21mux:inst.A
+A[5] => 21mux:inst5.A
+
+
+|Front|Mux2_6b:inst2|21mux:inst
+Y <= 5.DB_MAX_OUTPUT_PORT_TYPE
+A => 6.IN0
+S => 6.IN1
+S => 7.IN1
+B => 8.IN0
+
+
+|Front|Mux2_6b:inst2|21mux:inst1
+Y <= 5.DB_MAX_OUTPUT_PORT_TYPE
+A => 6.IN0
+S => 6.IN1
+S => 7.IN1
+B => 8.IN0
+
+
+|Front|Mux2_6b:inst2|21mux:inst2
+Y <= 5.DB_MAX_OUTPUT_PORT_TYPE
+A => 6.IN0
+S => 6.IN1
+S => 7.IN1
+B => 8.IN0
+
+
+|Front|Mux2_6b:inst2|21mux:inst3
+Y <= 5.DB_MAX_OUTPUT_PORT_TYPE
+A => 6.IN0
+S => 6.IN1
+S => 7.IN1
+B => 8.IN0
+
+
+|Front|Mux2_6b:inst2|21mux:inst4
+Y <= 5.DB_MAX_OUTPUT_PORT_TYPE
+A => 6.IN0
+S => 6.IN1
+S => 7.IN1
+B => 8.IN0
+
+
+|Front|Mux2_6b:inst2|21mux:inst5
+Y <= 5.DB_MAX_OUTPUT_PORT_TYPE
+A => 6.IN0
+S => 6.IN1
+S => 7.IN1
+B => 8.IN0
+
+
+|Front|Adder_6b:inst1
+Sum[0] <= Adder_1b:inst.Sum
+Sum[1] <= Adder_1b:inst1.Sum
+Sum[2] <= Adder_1b:inst2.Sum
+Sum[3] <= Adder_1b:inst3.Sum
+Sum[4] <= Adder_1b:inst4.Sum
+Sum[5] <= Adder_1b:inst5.Sum
+Input1[0] => Adder_1b:inst.Input1
+Input1[1] => Adder_1b:inst1.Input1
+Input1[2] => Adder_1b:inst2.Input1
+Input1[3] => Adder_1b:inst3.Input1
+Input1[4] => Adder_1b:inst4.Input1
+Input1[5] => Adder_1b:inst5.Input1
+Input2[0] => Adder_1b:inst.Input2
+Input2[1] => Adder_1b:inst1.Input2
+Input2[2] => Adder_1b:inst2.Input2
+Input2[3] => Adder_1b:inst3.Input2
+Input2[4] => Adder_1b:inst4.Input2
+Input2[5] => Adder_1b:inst5.Input2
+C_in => Adder_1b:inst.C_in
+
+
+|Front|Adder_6b:inst1|Adder_1b:inst5
+Sum <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+Input1 => inst1.IN0
+Input1 => inst4.IN1
+Input2 => inst1.IN1
+Input2 => inst4.IN0
+C_in => inst3.IN1
+C_in => inst.IN1
+C_out <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Front|Adder_6b:inst1|Adder_1b:inst4
+Sum <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+Input1 => inst1.IN0
+Input1 => inst4.IN1
+Input2 => inst1.IN1
+Input2 => inst4.IN0
+C_in => inst3.IN1
+C_in => inst.IN1
+C_out <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Front|Adder_6b:inst1|Adder_1b:inst3
+Sum <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+Input1 => inst1.IN0
+Input1 => inst4.IN1
+Input2 => inst1.IN1
+Input2 => inst4.IN0
+C_in => inst3.IN1
+C_in => inst.IN1
+C_out <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Front|Adder_6b:inst1|Adder_1b:inst2
+Sum <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+Input1 => inst1.IN0
+Input1 => inst4.IN1
+Input2 => inst1.IN1
+Input2 => inst4.IN0
+C_in => inst3.IN1
+C_in => inst.IN1
+C_out <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Front|Adder_6b:inst1|Adder_1b:inst1
+Sum <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+Input1 => inst1.IN0
+Input1 => inst4.IN1
+Input2 => inst1.IN1
+Input2 => inst4.IN0
+C_in => inst3.IN1
+C_in => inst.IN1
+C_out <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Front|Adder_6b:inst1|Adder_1b:inst
+Sum <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+Input1 => inst1.IN0
+Input1 => inst4.IN1
+Input2 => inst1.IN1
+Input2 => inst4.IN0
+C_in => inst3.IN1
+C_in => inst.IN1
+C_out <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
